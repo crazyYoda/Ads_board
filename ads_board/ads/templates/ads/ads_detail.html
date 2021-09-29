@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ ads_item.title }}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}}
+
+{% block content %}
+
+<div class="card mb-3">
+    <div class="card-header">
+        Категория: <a href="{{ ads_item.get_absolute_url }}">{{ ads_item.category }}</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ ads_item.title }}</h5>
+        <p class="card-text">{{ ads_item.content|safe|linebreaks }}</p>
+
+    <div class="card-footer text-muted">
+        {{ ads_item.created_at|date:"Y-m-d H:i" }}
+    </div>
+</div>
+
+
+{% endblock %}
